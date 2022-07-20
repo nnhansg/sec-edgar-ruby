@@ -31,3 +31,11 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the SecEdgarRuby project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/nnhansg/sec-edgar-ruby/blob/master/CODE_OF_CONDUCT.md).
+
+## Notes
+
+### Fair Access
+
+To ensure that everyone has equitable access to SEC EDGAR content, please use efficient scripting, downloading only what you need and please moderate requests to minimize server load. Current guidelines limit each user to a total of no more than 10 requests per second, regardless of the number of machines used to submit requests.
+
+To ensure that SEC.gov remains available to all users, we reserve the right to block IP addresses that submit excessive requests. The SEC does not allow "unclassified" bots or automated tools to crawl the site. Any request that has been identified as part of an unclassified bot or an automated tool outside of the acceptable policy will be managed to ensure fair access for all users. See the Developer FAQ on how to comply with SEC's Web Site Privacy and Security Policy.
