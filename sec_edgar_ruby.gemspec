@@ -5,6 +5,7 @@ require_relative "lib/sec_edgar_ruby/version"
 Gem::Specification.new do |spec|
   spec.name = "sec_edgar_ruby"
   spec.version = SecEdgarRuby::VERSION
+  spec.platform = Gem::Platform::RUBY
   spec.authors = ["Nhan Nguyen"]
   spec.email = ["nnhansg@gmail.com"]
 
@@ -24,18 +25,10 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'faraday'
   spec.add_dependency 'json'
 
-  spec.add_development_dependency 'bundler'
-  spec.add_development_dependency 'rake'
-  spec.add_development_dependency 'rubocop'
   spec.add_development_dependency 'rspec'
 
-  spec.files = Dir.chdir(File.expand_path(__dir__)) do
-    `git ls-files -z`.split("\x0").reject do |f|
-      (f == __FILE__) || f.match(%r{\A(?:(?:bin|test|spec|features)/|\.(?:git|travis|circleci)|appveyor)})
-    end
-  end
-
-  spec.bindir = "exe"
-  spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
+  spec.files         = `find *`.split("\n").uniq.sort.select { |f| !f.empty? }
+  spec.test_files    = `find spec/*`.split("\n")
+  spec.executables   = []
   spec.require_paths = ["lib"]
 end
