@@ -19,7 +19,15 @@ Gem::Specification.new do |spec|
   spec.metadata["changelog_uri"] = "https://github.com/nnhansg/sec-edgar-ruby/blob/main/CHANGELOG.md"
 
   spec.required_ruby_version = '>= 2.5.0'
-  spec.requirements << 'faraday ~> 1.0, >= 1.0.1'
+
+  spec.add_dependency 'activesupport'
+  spec.add_dependency 'faraday'
+  spec.add_dependency 'json'
+
+  spec.add_development_dependency 'bundler'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rubocop'
+  spec.add_development_dependency 'rspec'
 
   spec.files = Dir.chdir(File.expand_path(__dir__)) do
     `git ls-files -z`.split("\x0").reject do |f|

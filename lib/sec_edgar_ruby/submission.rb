@@ -1,10 +1,10 @@
 module SecEdgarRuby
   class Submission
     # cik: '##########'
-    # "%03d" % 5
     def self.cik_api_url(cik)
       return nil if cik.blank?
 
+      # 10 digits with leading zeros
       cik = "%010d" % cik.to_i
       "https://data.sec.gov/submissions/CIK#{cik}.json"
     end
@@ -24,6 +24,9 @@ module SecEdgarRuby
       end
 
       result = JSON.parse(response.body)
+      Util.deep_snake_case_keys(result)
+    rescue JSON::ParserError => e
+      result = Hash.from_xml(response.body).as_json
       Util.deep_snake_case_keys(result)
     end
   end
